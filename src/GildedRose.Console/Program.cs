@@ -95,20 +95,21 @@ namespace GildedRose.Console
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name == "Aged Brie")
+                    switch (item.Name)
                     {
-                        if (item.Quality < 50)
+                        case "Aged Brie":
                         {
-                            IncreaseQualityByOne(item);
+                            if (item.Quality < 50)
+                            {
+                                IncreaseQualityByOne(item);
+                            }
+
+                            break;
                         }
-                    }
-                    else
-                    {
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
+                        case "Backstage passes to a TAFKAL80ETC concert":
                             SetQualityToZero(item);
-                        }
-                        else
+                            break;
+                        default:
                         {
                             if (item.Quality <= 0)
                             {
@@ -121,6 +122,7 @@ namespace GildedRose.Console
                             }
 
                             DecreaseQualityByOne(item);
+                            break;
                         }
                     }
                 }
