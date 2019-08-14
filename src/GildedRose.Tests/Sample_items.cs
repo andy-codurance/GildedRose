@@ -89,5 +89,17 @@ namespace GildedRose.Tests
             
             item.Quality.Should().BeGreaterOrEqualTo(0);
         }
+
+        [Fact]
+        public void Quality_of_an_item_is_never_greater_than_50()
+        {
+            var item = new Item {Name = default, Quality = 50, SellIn = 0};
+
+            var app = ProgramFactory.Create(item);
+            
+            app.UpdateQuality();
+            
+            item.Quality.Should().BeLessOrEqualTo(50);
+        }
     }
 }
