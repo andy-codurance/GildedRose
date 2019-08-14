@@ -97,12 +97,10 @@ namespace GildedRose.Console
                     }
                     else
                     {
-                        if (item.Quality <= 0)
+                        if (item.Quality > 0)
                         {
-                            continue;
+                            DecreaseQualityByOne(item);
                         }
-
-                        DecreaseQualityByOne(item);
                     }
                 }
             }
