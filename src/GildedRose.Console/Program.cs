@@ -59,7 +59,7 @@ namespace GildedRose.Console
 
     public class AgedBrie
     {
-        public static void UpdateQuality(Item item)
+        public void UpdateQuality(Item item)
         {
             if (item.Quality < 50)
             {
@@ -119,7 +119,7 @@ namespace GildedRose.Console
                     case "Sulfuras, Hand of Ragnaros":
                         continue;
                     case "Aged Brie":
-                        AgedBrie.UpdateQuality(item);
+                        new AgedBrie().UpdateQuality(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                     {
