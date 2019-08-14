@@ -96,7 +96,7 @@ namespace GildedRose.Console
                         }
                         else
                         {
-                            item.Quality = item.Quality - item.Quality;
+                            SetQualityToZero(item);
                         }
                     }
                     else
@@ -108,6 +108,11 @@ namespace GildedRose.Console
                     }
                 }
             }
+        }
+
+        private static void SetQualityToZero(Item item)
+        {
+            item.Quality -= item.Quality;
         }
 
         private static void DecreaseSellIn(Item item)
