@@ -63,10 +63,7 @@ namespace GildedRose.Console
                     }
                     default:
                     {
-                        if (item.Quality > 0)
-                        {
-                            DecreaseQualityByOne(item);
-                        }
+                        DecreaseQualityIfGreaterThanZero(item);
 
                         break;
                     }
@@ -86,12 +83,17 @@ namespace GildedRose.Console
                     }
                     else
                     {
-                        if (item.Quality > 0)
-                        {
-                            DecreaseQualityByOne(item);
-                        }
+                        DecreaseQualityIfGreaterThanZero(item);
                     }
                 }
+            }
+        }
+
+        private static void DecreaseQualityIfGreaterThanZero(Item item)
+        {
+            if (item.Quality > 0)
+            {
+                item.Quality -= 1;
             }
         }
 
@@ -111,11 +113,6 @@ namespace GildedRose.Console
         private static void DecreaseSellIn(Item item)
         {
             item.SellIn -= 1;
-        }
-
-        private static void DecreaseQualityByOne(Item item)
-        {
-            item.Quality -= 1;
         }
     }
 
