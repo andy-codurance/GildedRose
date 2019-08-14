@@ -67,21 +67,18 @@ namespace GildedRose.Console
                         {
                             IncreaseQualityIfFiftyOrLess(item);
                         }
-
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
-                        if (item.SellIn >= 0)
+                        if (item.SellIn < 0)
                         {
-                            continue;
+                            SetQualityToZero(item);
                         }
-                        SetQualityToZero(item);
                         break;
                     default:
-                        if (item.SellIn >= 0)
+                        if (item.SellIn < 0)
                         {
-                            continue;
+                            DecreaseQualityIfGreaterThanZero(item);
                         }
-                        DecreaseQualityIfGreaterThanZero(item);
                         break;
                 }
             }
