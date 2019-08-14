@@ -53,4 +53,27 @@ namespace GildedRose.Tests
             return output.ToString();
         }
     }
+
+    public class Normal_item
+    {
+        [Fact]
+        public void Quality_and_sellin_decreases_by_1_every_day()
+        {
+            var item = new Item {Name = default, Quality = 10, SellIn = 10};
+            
+            var app = new Program
+            {
+                Items = new[]
+                {
+                    item
+                }
+            };
+            
+            app.UpdateQuality();
+            
+            var actual = new { item.Quality, item.SellIn };
+
+            actual.Should().Be(new { Quality = 9, SellIn = 9 });
+        }
+    }
 }
