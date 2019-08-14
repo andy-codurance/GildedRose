@@ -45,17 +45,20 @@ namespace GildedRose.Console
                     case "Aged Brie":
                         AgedBriePreSellIn(item);
                         DecreaseSellIn(item);
+                        AgedBriePostSellIn(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                     {
                         BackstagePassPreSellIn(item);
                         DecreaseSellIn(item);
+                        BackstagePassPostSellIn(item);
                         break;
                     }
                     default:
                     {
                         NormalItemPreSellIn(item);
                         DecreaseSellIn(item);
+                        NormalItemPostSellIn(item);
                         break;
                     }
                 }
@@ -63,13 +66,10 @@ namespace GildedRose.Console
                 switch (item.Name)
                 {
                     case "Aged Brie":
-                        AgedBriePostSellIn(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
-                        BackstagePassPostSellIn(item);
                         break;
                     default:
-                        NormalItemPostSellIn(item);
                         break;
                 }
             }
