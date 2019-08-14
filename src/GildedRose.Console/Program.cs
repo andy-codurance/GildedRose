@@ -63,11 +63,11 @@ namespace GildedRose.Console
                 switch (item.Name)
                 {
                     case "Aged Brie":
-                        if (item.SellIn >= 0)
+                        if (item.SellIn < 0)
                         {
-                            continue;
+                            IncreaseQualityIfFiftyOrLess(item);
                         }
-                        IncreaseQualityIfFiftyOrLess(item);
+
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                         if (item.SellIn >= 0)
