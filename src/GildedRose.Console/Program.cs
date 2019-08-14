@@ -98,7 +98,7 @@ namespace GildedRose.Console
         {
             if (item.Quality < 50)
             {
-                IncreaseQualityByOne(item);
+                item.Quality += 1;
             }
         }
 
@@ -115,11 +115,6 @@ namespace GildedRose.Console
         private static void DecreaseQualityByOne(Item item)
         {
             item.Quality -= 1;
-        }
-
-        private static void IncreaseQualityByOne(Item item)
-        {
-            item.Quality += 1;
         }
     }
 
