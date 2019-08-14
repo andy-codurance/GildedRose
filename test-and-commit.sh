@@ -12,5 +12,5 @@ revert() {
     git reset --hard
 }
 
-$(test) && commit || revert 
+test && commit || revert 
 
