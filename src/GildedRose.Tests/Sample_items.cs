@@ -1,6 +1,5 @@
 namespace GildedRose.Tests
 {
-    using System.Collections.Generic;
     using System.Text;
     using Console;
     using FluentAssertions;
@@ -19,23 +18,20 @@ namespace GildedRose.Tests
         [Fact]
         public void Match_gold_master()
         {
-            var app = new Program
-            {
-                Items = new List<Item>
+            var app = ProgramFactory.Create(
+                new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
+                new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
+                new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
+                new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
+                new Item
                 {
-                    new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-                    new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
-                    new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                    new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
-                    new Item
-                    {
-                        Name = "Backstage passes to a TAFKAL80ETC concert",
-                        SellIn = 15,
-                        Quality = 20
-                    },
-                    new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
-                }
-            };
+                    Name = "Backstage passes to a TAFKAL80ETC concert",
+                    SellIn = 15,
+                    Quality = 20
+                },
+                new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+            );
+            
             app.UpdateQuality();
 
             var output = Print(app);
@@ -61,14 +57,8 @@ namespace GildedRose.Tests
         {
             var item = new Item {Name = default, Quality = 10, SellIn = 10};
             
-            var app = new Program
-            {
-                Items = new[]
-                {
-                    item
-                }
-            };
-            
+            var app = ProgramFactory.Create(item);
+
             app.UpdateQuality();
             
             var actual = new { item.Quality, item.SellIn };
@@ -81,13 +71,7 @@ namespace GildedRose.Tests
         {
             var item = new Item {Name = default, Quality = 10, SellIn = 0};
 
-            var app = new Program
-            {
-                Items = new[]
-                {
-                    item
-                }
-            };
+            var app = ProgramFactory.Create(item);
             
             app.UpdateQuality();
             
