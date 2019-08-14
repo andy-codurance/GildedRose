@@ -50,7 +50,7 @@ namespace GildedRose.Tests
         }
     }
 
-    public class Normal_item
+    public class Item_characteristics
     {
         [Fact]
         public void Quality_and_sellin_decreases_by_1_every_day()
@@ -77,10 +77,7 @@ namespace GildedRose.Tests
             
             item.Quality.Should().Be(8);
         }
-    }
-
-    public class All_items
-    {
+        
         [Fact]
         public void Quality_is_never_negative()
         {
