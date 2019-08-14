@@ -25,6 +25,7 @@ namespace GildedRose.Console
     }
 
     public class BackstagePass
+        : Item
     {
         public void UpdateQuality(Item item)
         {
@@ -59,6 +60,7 @@ namespace GildedRose.Console
     }
 
     public class AgedBrie
+        : Item
     {
         public void UpdateQuality(Item item)
         {
