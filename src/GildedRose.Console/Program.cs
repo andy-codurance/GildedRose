@@ -2,6 +2,27 @@
 
 namespace GildedRose.Console
 {
+    public class NormalItem
+    {
+        public static void UpdateQuality(Item item)
+        {
+            if (item.Quality > 0)
+            {
+                item.Quality -= 1;
+            }
+
+            item.SellIn -= 1;
+            
+            if (item.SellIn < 0)
+            {
+                if (item.Quality > 0)
+                {
+                    item.Quality -= 1;
+                }
+            }
+        }
+    }
+
     public class Program
     {
         public IList<Item> Items;
@@ -52,27 +73,9 @@ namespace GildedRose.Console
                     }
                     default:
                     {
-                        NormalItem(item);
+                        NormalItem.UpdateQuality(item);
                         break;
                     }
-                }
-            }
-        }
-
-        private static void NormalItem(Item item)
-        {
-            if (item.Quality > 0)
-            {
-                item.Quality -= 1;
-            }
-
-            item.SellIn -= 1;
-            
-            if (item.SellIn < 0)
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality -= 1;
                 }
             }
         }
