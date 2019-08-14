@@ -75,5 +75,23 @@ namespace GildedRose.Tests
 
             actual.Should().Be(new { Quality = 9, SellIn = 9 });
         }
+
+        [Fact]
+        public void Quality_degrades_twice_as_fast_after_sellin_has_passed()
+        {
+            var item = new Item {Name = default, Quality = 10, SellIn = 0};
+
+            var app = new Program
+            {
+                Items = new[]
+                {
+                    item
+                }
+            };
+            
+            app.UpdateQuality();
+            
+            item.Quality.Should().Be(8);
+        }
     }
 }
