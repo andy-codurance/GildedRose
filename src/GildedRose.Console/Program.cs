@@ -23,6 +23,40 @@ namespace GildedRose.Console
         }
     }
 
+    public class BackstagePass
+    {
+        public static void UpdateQuality(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality += 1;
+            }
+
+            if (item.SellIn < 11)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality += 1;
+                }
+            }
+
+            if (item.SellIn < 6)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality += 1;
+                }
+            }
+
+            item.SellIn -= 1;
+            
+            if (item.SellIn < 0)
+            {
+                item.Quality -= item.Quality;
+            }
+        }
+    }
+
     public class Program
     {
         public IList<Item> Items;
@@ -68,7 +102,7 @@ namespace GildedRose.Console
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                     {
-                        BackstagePass(item);
+                        BackstagePass.UpdateQuality(item);
                         break;
                     }
                     default:
@@ -77,37 +111,6 @@ namespace GildedRose.Console
                         break;
                     }
                 }
-            }
-        }
-
-        private static void BackstagePass(Item item)
-        {
-            if (item.Quality < 50)
-            {
-                item.Quality += 1;
-            }
-
-            if (item.SellIn < 11)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality += 1;
-                }
-            }
-
-            if (item.SellIn < 6)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality += 1;
-                }
-            }
-
-            item.SellIn -= 1;
-            
-            if (item.SellIn < 0)
-            {
-                item.Quality -= item.Quality;
             }
         }
 
