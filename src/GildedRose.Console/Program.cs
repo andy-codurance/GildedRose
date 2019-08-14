@@ -52,7 +52,7 @@ namespace GildedRose.Console
                 {
                     if (item.Quality < 50)
                     {
-                        item.Quality = item.Quality + 1;
+                        IncreaseQualityByOne(item);
 
                         if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                         {
@@ -60,7 +60,7 @@ namespace GildedRose.Console
                             {
                                 if (item.Quality < 50)
                                 {
-                                    item.Quality = item.Quality + 1;
+                                    IncreaseQualityByOne(item);
                                 }
                             }
 
@@ -68,7 +68,7 @@ namespace GildedRose.Console
                             {
                                 if (item.Quality < 50)
                                 {
-                                    item.Quality = item.Quality + 1;
+                                    IncreaseQualityByOne(item);
                                 }
                             }
                         }
@@ -103,13 +103,17 @@ namespace GildedRose.Console
                     {
                         if (item.Quality < 50)
                         {
-                            item.Quality = item.Quality + 1;
+                            IncreaseQualityByOne(item);
                         }
                     }
                 }
             }
         }
 
+        private static void IncreaseQualityByOne(Item item)
+        {
+            item.Quality = item.Quality + 1;
+        }
     }
 
     public class Item
