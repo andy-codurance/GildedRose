@@ -131,19 +131,24 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
+                ShopItem shopItem;
                 switch (item.Name)
                 {
                     case "Sulfuras, Hand of Ragnaros":
-                        new Ragnaros().UpdateQuality(item);
+                        shopItem = new Ragnaros();
+                        shopItem.UpdateQuality(item);
                         break;
                     case "Aged Brie":
-                        new AgedBrie().UpdateQuality(item);
+                        shopItem = new AgedBrie();
+                        shopItem.UpdateQuality(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
-                        new BackstagePass().UpdateQuality(item);
+                        shopItem = new BackstagePass();
+                        shopItem.UpdateQuality(item);
                         break;
                     default:
-                        new NormalItem().UpdateQuality(item);
+                        shopItem = new NormalItem();
+                        shopItem.UpdateQuality(item);
                         break;
                 }
             }
