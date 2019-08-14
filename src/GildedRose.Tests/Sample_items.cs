@@ -12,8 +12,8 @@ namespace GildedRose.Tests
                                     "Aged Brie: quality is 1, sell in 1 days" + NewLine +
                                     "Elixir of the Mongoose: quality is 6, sell in 4 days" + NewLine +
                                     "Sulfuras, Hand of Ragnaros: quality is 80, sell in 0 days" + NewLine +
-                                    "Backstage passes to a TAFKAL80ETC concert: quality is 21, sell in 14 days" + NewLine +
-                                    "Conjured Mana Cake: quality is 5, sell in 2 days" + NewLine;
+                                    "Backstage passes to a TAFKAL80ETC concert: quality is 21, sell in 14 days" + NewLine /*+
+                                    "Conjured Mana Cake: quality is 5, sell in 2 days" + NewLine*/;
 
         [Fact]
         public void Match_gold_master()
@@ -28,8 +28,8 @@ namespace GildedRose.Tests
                     Name = "Backstage passes to a TAFKAL80ETC concert",
                     SellIn = 15,
                     Quality = 20
-                },
-                new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+                }/*,
+                new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}*/
             );
             
             app.UpdateQuality();
