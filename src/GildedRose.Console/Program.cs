@@ -59,11 +59,6 @@ namespace GildedRose.Console
                         break;
                     }
                 }
-
-                if (item.SellIn >= 0)
-                {
-                    continue;
-                }
                 
                 switch (item.Name)
                 {
