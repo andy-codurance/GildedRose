@@ -3,6 +3,7 @@
 namespace GildedRose.Console
 {
     public class NormalItem
+        : Item
     {
         public void UpdateQuality(Item item)
         {
