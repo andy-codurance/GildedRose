@@ -136,21 +136,18 @@ namespace GildedRose.Console
                 {
                     case "Sulfuras, Hand of Ragnaros":
                         shopItem = new Ragnaros();
-                        shopItem.UpdateQuality(item);
                         break;
                     case "Aged Brie":
                         shopItem = new AgedBrie();
-                        shopItem.UpdateQuality(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                         shopItem = new BackstagePass();
-                        shopItem.UpdateQuality(item);
                         break;
                     default:
                         shopItem = new NormalItem();
-                        shopItem.UpdateQuality(item);
                         break;
                 }
+                shopItem.UpdateQuality(item);
             }
         }
     }
