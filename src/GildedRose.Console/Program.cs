@@ -66,12 +66,13 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    if (item.Quality > 0)
+                    if (item.Quality <= 0 || item.Name == "Sulfuras, Hand of Ragnaros")
                     {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            DecreaseQualityByOne(item);
-                        }
+                        // do not decrease quality
+                    }
+                    else
+                    {
+                        DecreaseQualityByOne(item);
                     }
                 }
 
