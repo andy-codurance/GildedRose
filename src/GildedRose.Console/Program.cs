@@ -57,6 +57,27 @@ namespace GildedRose.Console
         }
     }
 
+    public class AgedBrie
+    {
+        public static void UpdateQuality(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality += 1;
+            }
+
+            item.SellIn -= 1;
+            
+            if (item.SellIn < 0)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality += 1;
+                }
+            }
+        }
+    }
+
     public class Program
     {
         public IList<Item> Items;
@@ -98,7 +119,7 @@ namespace GildedRose.Console
                     case "Sulfuras, Hand of Ragnaros":
                         continue;
                     case "Aged Brie":
-                        AgedBrie(item);
+                        AgedBrie.UpdateQuality(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                     {
@@ -110,24 +131,6 @@ namespace GildedRose.Console
                         NormalItem.UpdateQuality(item);
                         break;
                     }
-                }
-            }
-        }
-
-        private static void AgedBrie(Item item)
-        {
-            if (item.Quality < 50)
-            {
-                item.Quality += 1;
-            }
-
-            item.SellIn -= 1;
-            
-            if (item.SellIn < 0)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality += 1;
                 }
             }
         }
