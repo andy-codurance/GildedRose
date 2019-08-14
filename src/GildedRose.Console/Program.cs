@@ -43,26 +43,41 @@ namespace GildedRose.Console
                     case "Sulfuras, Hand of Ragnaros":
                         continue;
                     case "Aged Brie":
-                        AgedBriePreSellIn(item);
-                        DecreaseSellIn(item);
-                        AgedBriePostSellIn(item);
+                        AgedBrie(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                     {
-                        BackstagePassPreSellIn(item);
-                        DecreaseSellIn(item);
-                        BackstagePassPostSellIn(item);
+                        BackstagePass(item);
                         break;
                     }
                     default:
                     {
-                        NormalItemPreSellIn(item);
-                        DecreaseSellIn(item);
-                        NormalItemPostSellIn(item);
+                        NormalItem(item);
                         break;
                     }
                 }
             }
+        }
+
+        private static void NormalItem(Item item)
+        {
+            NormalItemPreSellIn(item);
+            DecreaseSellIn(item);
+            NormalItemPostSellIn(item);
+        }
+
+        private static void BackstagePass(Item item)
+        {
+            BackstagePassPreSellIn(item);
+            DecreaseSellIn(item);
+            BackstagePassPostSellIn(item);
+        }
+
+        private static void AgedBrie(Item item)
+        {
+            AgedBriePreSellIn(item);
+            DecreaseSellIn(item);
+            AgedBriePostSellIn(item);
         }
 
         private static void NormalItemPostSellIn(Item item)
