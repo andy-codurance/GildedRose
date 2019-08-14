@@ -38,6 +38,11 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
+                if (item.Name == "Sulfuras, Hand of Ragnaros")
+                {
+                    continue;
+                }
+
                 if (item.Name == "Aged Brie")
                 {
                     IncreaseQualityIfFiftyOrLess(item);
@@ -56,10 +61,6 @@ namespace GildedRose.Console
                         IncreaseQualityIfFiftyOrLess(item);
                     }
                 }
-                else if (item.Name == "Sulfuras, Hand of Ragnaros")
-                {
-                    continue;
-                }
                 else
                 {
                     if (item.Quality > 0)
@@ -67,7 +68,7 @@ namespace GildedRose.Console
                         DecreaseQualityByOne(item);
                     }
                 }
-                
+
                 DecreaseSellIn(item);
 
                 if (item.SellIn < 0)
