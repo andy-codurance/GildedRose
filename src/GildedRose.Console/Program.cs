@@ -2,8 +2,13 @@
 
 namespace GildedRose.Console
 {
+    public interface ShopItem
+    {
+        void UpdateQuality(Item item);
+    }
+
     public class NormalItem
-        : Item
+        : Item, ShopItem
     {
         public void UpdateQuality(Item item)
         {
@@ -25,7 +30,7 @@ namespace GildedRose.Console
     }
 
     public class BackstagePass
-        : Item
+        : Item, ShopItem
     {
         public void UpdateQuality(Item item)
         {
@@ -60,7 +65,7 @@ namespace GildedRose.Console
     }
 
     public class AgedBrie
-        : Item
+        : Item, ShopItem
     {
         public void UpdateQuality(Item item)
         {
