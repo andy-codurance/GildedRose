@@ -78,4 +78,19 @@ namespace GildedRose.Tests
             item.Quality.Should().Be(8);
         }
     }
+
+    public class All_items
+    {
+        [Fact]
+        public void Quality_is_never_negative()
+        {
+            var item = new Item {Name = default, Quality = 0, SellIn = 0};
+
+            var app = ProgramFactory.Create(item);
+            
+            app.UpdateQuality();
+            
+            item.Quality.Should().BeGreaterOrEqualTo(0);
+        }
+    }
 }
