@@ -76,7 +76,11 @@ namespace GildedRose.Console
                     }
                 }
 
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                if (item.Name == "Sulfuras, Hand of Ragnaros")
+                {
+                    // do not decrease sellin
+                }
+                else
                 {
                     DecreaseSellIn(item);
                 }
