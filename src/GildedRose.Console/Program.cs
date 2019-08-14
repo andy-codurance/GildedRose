@@ -52,7 +52,7 @@ namespace GildedRose.Console
                     }
                     default:
                     {
-                        DecreaseQualityIfGreaterThanZero(item);
+                        NormalItemPreSellIn(item);
                         break;
                     }
                 }
@@ -75,6 +75,11 @@ namespace GildedRose.Console
                     }
                 }
             }
+        }
+
+        private static void NormalItemPreSellIn(Item item)
+        {
+            DecreaseQualityIfGreaterThanZero(item);
         }
 
         private static void BackstagePassPreSellIn(Item item)
