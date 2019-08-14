@@ -47,24 +47,12 @@ namespace GildedRose.Console
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                     {
-                        IncreaseQualityIfFiftyOrLess(item);
-                    
-                        if (item.SellIn < 11)
-                        {
-                            IncreaseQualityIfFiftyOrLess(item);
-                        }
-
-                        if (item.SellIn < 6)
-                        {
-                            IncreaseQualityIfFiftyOrLess(item);
-                        }
-
+                        BackstagePassPreSellIn(item);
                         break;
                     }
                     default:
                     {
                         DecreaseQualityIfGreaterThanZero(item);
-
                         break;
                     }
                 }
@@ -86,6 +74,21 @@ namespace GildedRose.Console
                         DecreaseQualityIfGreaterThanZero(item);
                     }
                 }
+            }
+        }
+
+        private static void BackstagePassPreSellIn(Item item)
+        {
+            IncreaseQualityIfFiftyOrLess(item);
+
+            if (item.SellIn < 11)
+            {
+                IncreaseQualityIfFiftyOrLess(item);
+            }
+
+            if (item.SellIn < 6)
+            {
+                IncreaseQualityIfFiftyOrLess(item);
             }
         }
 
