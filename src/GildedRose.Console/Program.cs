@@ -3,7 +3,6 @@
 namespace GildedRose.Console
 {
     public abstract class ShopItem
-        : Item
     {
         public abstract void UpdateQuality(Item item);
     }
