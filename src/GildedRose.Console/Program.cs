@@ -38,7 +38,33 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
-                if (item.Name == "Aged Brie" || item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                if (item.Name == "Aged Brie")
+                {
+                    if (item.Quality < 50)
+                    {
+                        IncreaseQualityByOne(item);
+
+                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                        {
+                            if (item.SellIn < 11)
+                            {
+                                if (item.Quality < 50)
+                                {
+                                    IncreaseQualityByOne(item);
+                                }
+                            }
+
+                            if (item.SellIn < 6)
+                            {
+                                if (item.Quality < 50)
+                                {
+                                    IncreaseQualityByOne(item);
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
                     if (item.Quality < 50)
                     {
