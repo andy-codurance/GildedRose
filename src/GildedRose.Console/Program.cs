@@ -43,7 +43,7 @@ namespace GildedRose.Console
                     case "Sulfuras, Hand of Ragnaros":
                         continue;
                     case "Aged Brie":
-                        IncreaseQualityIfFiftyOrLess(item);
+                        AgedBriePreSellIn(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                     {
@@ -87,6 +87,11 @@ namespace GildedRose.Console
                     }
                 }
             }
+        }
+
+        private static void AgedBriePreSellIn(Item item)
+        {
+            IncreaseQualityIfFiftyOrLess(item);
         }
 
         private static void DecreaseQualityIfGreaterThanZero(Item item)
