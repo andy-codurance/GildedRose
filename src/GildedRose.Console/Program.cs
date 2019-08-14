@@ -85,7 +85,11 @@ namespace GildedRose.Console
                 {
                     if (item.Name != "Aged Brie")
                     {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                        {
+                            SetQualityToZero(item);
+                        }
+                        else
                         {
                             if (item.Quality <= 0 || item.Name == "Sulfuras, Hand of Ragnaros")
                             {
@@ -93,10 +97,6 @@ namespace GildedRose.Console
                             }
 
                             DecreaseQualityByOne(item);
-                        }
-                        else
-                        {
-                            SetQualityToZero(item);
                         }
                     }
                     else
