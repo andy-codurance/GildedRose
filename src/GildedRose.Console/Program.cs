@@ -112,7 +112,7 @@ namespace GildedRose.Console
 
         private static void IncreaseQualityByOne(Item item)
         {
-            item.Quality = item.Quality + 1;
+            item.Quality += 1;
         }
     }
 
