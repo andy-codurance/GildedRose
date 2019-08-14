@@ -87,13 +87,12 @@ namespace GildedRose.Console
                     {
                         if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
                         {
-                            if (item.Quality > 0)
+                            if (item.Quality <= 0 || item.Name == "Sulfuras, Hand of Ragnaros")
                             {
-                                if (item.Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    DecreaseQualityByOne(item);
-                                }
+                                continue;
                             }
+
+                            DecreaseQualityByOne(item);
                         }
                         else
                         {
