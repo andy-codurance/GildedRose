@@ -2,15 +2,15 @@
 
 namespace GildedRose.Console
 {
-    public interface ShopItem
+    public abstract class ShopItem
     {
-        void UpdateQuality(Item item);
+        public abstract void UpdateQuality(Item item);
     }
 
     public class NormalItem
         : ShopItem
     {
-        public void UpdateQuality(Item item)
+        public override void UpdateQuality(Item item)
         {
             if (item.Quality > 0)
             {
@@ -32,7 +32,7 @@ namespace GildedRose.Console
     public class BackstagePass
         : ShopItem
     {
-        public void UpdateQuality(Item item)
+        public override void UpdateQuality(Item item)
         {
             if (item.Quality < 50)
             {
@@ -67,7 +67,7 @@ namespace GildedRose.Console
     public class AgedBrie
         : ShopItem
     {
-        public void UpdateQuality(Item item)
+        public override void UpdateQuality(Item item)
         {
             if (item.Quality < 50)
             {
