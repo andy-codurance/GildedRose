@@ -38,34 +38,37 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
-                if (item.Name == "Sulfuras, Hand of Ragnaros")
+                switch (item.Name)
                 {
-                    continue;
-                }
-
-                if (item.Name == "Aged Brie")
-                {
-                    IncreaseQualityIfFiftyOrLess(item);
-                }
-                else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    IncreaseQualityIfFiftyOrLess(item);
+                    case "Sulfuras, Hand of Ragnaros":
+                        continue;
+                    case "Aged Brie":
+                        IncreaseQualityIfFiftyOrLess(item);
+                        break;
+                    case "Backstage passes to a TAFKAL80ETC concert":
+                    {
+                        IncreaseQualityIfFiftyOrLess(item);
                     
-                    if (item.SellIn < 11)
-                    {
-                        IncreaseQualityIfFiftyOrLess(item);
-                    }
+                        if (item.SellIn < 11)
+                        {
+                            IncreaseQualityIfFiftyOrLess(item);
+                        }
 
-                    if (item.SellIn < 6)
-                    {
-                        IncreaseQualityIfFiftyOrLess(item);
+                        if (item.SellIn < 6)
+                        {
+                            IncreaseQualityIfFiftyOrLess(item);
+                        }
+
+                        break;
                     }
-                }
-                else
-                {
-                    if (item.Quality > 0)
+                    default:
                     {
-                        DecreaseQualityByOne(item);
+                        if (item.Quality > 0)
+                        {
+                            DecreaseQualityByOne(item);
+                        }
+
+                        break;
                     }
                 }
 
