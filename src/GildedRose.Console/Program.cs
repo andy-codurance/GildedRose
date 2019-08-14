@@ -63,24 +63,39 @@ namespace GildedRose.Console
                 switch (item.Name)
                 {
                     case "Aged Brie":
-                        if (item.SellIn < 0)
-                        {
-                            IncreaseQualityIfFiftyOrLess(item);
-                        }
+                        AgedBriePostSellIn(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
-                        if (item.SellIn < 0)
-                        {
-                            SetQualityToZero(item);
-                        }
+                        BackstagePassPostSellIn(item);
                         break;
                     default:
-                        if (item.SellIn < 0)
-                        {
-                            DecreaseQualityIfGreaterThanZero(item);
-                        }
+                        NormalItemPostSellIn(item);
                         break;
                 }
+            }
+        }
+
+        private static void NormalItemPostSellIn(Item item)
+        {
+            if (item.SellIn < 0)
+            {
+                DecreaseQualityIfGreaterThanZero(item);
+            }
+        }
+
+        private static void BackstagePassPostSellIn(Item item)
+        {
+            if (item.SellIn < 0)
+            {
+                SetQualityToZero(item);
+            }
+        }
+
+        private static void AgedBriePostSellIn(Item item)
+        {
+            if (item.SellIn < 0)
+            {
+                IncreaseQualityIfFiftyOrLess(item);
             }
         }
 
