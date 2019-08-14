@@ -74,11 +74,7 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    if (item.Quality <= 0)
-                    {
-                        // do not decrease quality
-                    }
-                    else
+                    if (item.Quality > 0)
                     {
                         DecreaseQualityByOne(item);
                     }
