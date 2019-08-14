@@ -62,16 +62,6 @@ namespace GildedRose.Console
                         break;
                     }
                 }
-                
-                switch (item.Name)
-                {
-                    case "Aged Brie":
-                        break;
-                    case "Backstage passes to a TAFKAL80ETC concert":
-                        break;
-                    default:
-                        break;
-                }
             }
         }
 
