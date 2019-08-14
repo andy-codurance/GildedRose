@@ -69,23 +69,20 @@ namespace GildedRose.Console
                     if (item.Quality < 50)
                     {
                         IncreaseQualityByOne(item);
-
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                        
+                        if (item.SellIn < 11)
                         {
-                            if (item.SellIn < 11)
+                            if (item.Quality < 50)
                             {
-                                if (item.Quality < 50)
-                                {
-                                    IncreaseQualityByOne(item);
-                                }
+                                IncreaseQualityByOne(item);
                             }
+                        }
 
-                            if (item.SellIn < 6)
+                        if (item.SellIn < 6)
+                        {
+                            if (item.Quality < 50)
                             {
-                                if (item.Quality < 50)
-                                {
-                                    IncreaseQualityByOne(item);
-                                }
+                                IncreaseQualityByOne(item);
                             }
                         }
                     }
