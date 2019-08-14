@@ -8,6 +8,14 @@ namespace GildedRose.Console
         public abstract void UpdateQuality(Item item);
     }
 
+    public class Ragnaros
+        : ShopItem
+    {
+        public override void UpdateQuality(Item item)
+        {
+        }
+    }
+    
     public class NormalItem
         : ShopItem
     {
@@ -126,20 +134,17 @@ namespace GildedRose.Console
                 switch (item.Name)
                 {
                     case "Sulfuras, Hand of Ragnaros":
-                        continue;
+                        new Ragnaros().UpdateQuality(item);
+                        break;
                     case "Aged Brie":
                         new AgedBrie().UpdateQuality(item);
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
-                    {
                         new BackstagePass().UpdateQuality(item);
                         break;
-                    }
                     default:
-                    {
                         new NormalItem().UpdateQuality(item);
                         break;
-                    }
                 }
             }
         }
