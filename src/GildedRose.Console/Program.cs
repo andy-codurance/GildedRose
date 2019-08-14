@@ -4,7 +4,7 @@ namespace GildedRose.Console
 {
     public class NormalItem
     {
-        public static void UpdateQuality(Item item)
+        public void UpdateQuality(Item item)
         {
             if (item.Quality > 0)
             {
@@ -25,7 +25,7 @@ namespace GildedRose.Console
 
     public class BackstagePass
     {
-        public static void UpdateQuality(Item item)
+        public void UpdateQuality(Item item)
         {
             if (item.Quality < 50)
             {
@@ -123,12 +123,12 @@ namespace GildedRose.Console
                         break;
                     case "Backstage passes to a TAFKAL80ETC concert":
                     {
-                        BackstagePass.UpdateQuality(item);
+                        new BackstagePass().UpdateQuality(item);
                         break;
                     }
                     default:
                     {
-                        NormalItem.UpdateQuality(item);
+                        new NormalItem().UpdateQuality(item);
                         break;
                     }
                 }
