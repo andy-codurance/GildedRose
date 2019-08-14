@@ -44,7 +44,7 @@ namespace GildedRose.Console
                     {
                         if (item.Name != "Sulfuras, Hand of Ragnaros")
                         {
-                            item.Quality = item.Quality - 1;
+                            DecreaseQualityByOne(item);
                         }
                     }
                 }
@@ -90,7 +90,7 @@ namespace GildedRose.Console
                             {
                                 if (item.Name != "Sulfuras, Hand of Ragnaros")
                                 {
-                                    item.Quality = item.Quality - 1;
+                                    DecreaseQualityByOne(item);
                                 }
                             }
                         }
@@ -108,6 +108,11 @@ namespace GildedRose.Console
                     }
                 }
             }
+        }
+
+        private static void DecreaseQualityByOne(Item item)
+        {
+            item.Quality -= 1;
         }
 
         private static void IncreaseQualityByOne(Item item)
