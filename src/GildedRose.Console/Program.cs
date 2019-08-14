@@ -61,98 +61,69 @@ namespace GildedRose.Console
 
         private static void NormalItem(Item item)
         {
-            NormalItemPreSellIn(item);
-            DecreaseSellIn(item);
-            NormalItemPostSellIn(item);
-        }
-
-        private static void BackstagePass(Item item)
-        {
-            BackstagePassPreSellIn(item);
-            DecreaseSellIn(item);
-            BackstagePassPostSellIn(item);
-        }
-
-        private static void AgedBrie(Item item)
-        {
-            AgedBriePreSellIn(item);
-            DecreaseSellIn(item);
-            AgedBriePostSellIn(item);
-        }
-
-        private static void NormalItemPostSellIn(Item item)
-        {
-            if (item.SellIn < 0)
-            {
-                DecreaseQualityIfGreaterThanZero(item);
-            }
-        }
-
-        private static void BackstagePassPostSellIn(Item item)
-        {
-            if (item.SellIn < 0)
-            {
-                SetQualityToZero(item);
-            }
-        }
-
-        private static void AgedBriePostSellIn(Item item)
-        {
-            if (item.SellIn < 0)
-            {
-                IncreaseQualityIfFiftyOrLess(item);
-            }
-        }
-
-        private static void NormalItemPreSellIn(Item item)
-        {
-            DecreaseQualityIfGreaterThanZero(item);
-        }
-
-        private static void BackstagePassPreSellIn(Item item)
-        {
-            IncreaseQualityIfFiftyOrLess(item);
-
-            if (item.SellIn < 11)
-            {
-                IncreaseQualityIfFiftyOrLess(item);
-            }
-
-            if (item.SellIn < 6)
-            {
-                IncreaseQualityIfFiftyOrLess(item);
-            }
-        }
-
-        private static void AgedBriePreSellIn(Item item)
-        {
-            IncreaseQualityIfFiftyOrLess(item);
-        }
-
-        private static void DecreaseQualityIfGreaterThanZero(Item item)
-        {
             if (item.Quality > 0)
             {
                 item.Quality -= 1;
             }
+
+            item.SellIn -= 1;
+            
+            if (item.SellIn < 0)
+            {
+                if (item.Quality > 0)
+                {
+                    item.Quality -= 1;
+                }
+            }
         }
 
-        private static void IncreaseQualityIfFiftyOrLess(Item item)
+        private static void BackstagePass(Item item)
         {
             if (item.Quality < 50)
             {
                 item.Quality += 1;
             }
-        }
 
-        private static void SetQualityToZero(Item item)
-        {
-            item.Quality -= item.Quality;
-        }
+            if (item.SellIn < 11)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality += 1;
+                }
+            }
 
-        private static void DecreaseSellIn(Item item)
-        {
+            if (item.SellIn < 6)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality += 1;
+                }
+            }
+
             item.SellIn -= 1;
+            
+            if (item.SellIn < 0)
+            {
+                item.Quality -= item.Quality;
+            }
+        }
+
+        private static void AgedBrie(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality += 1;
+            }
+
+            item.SellIn -= 1;
+            
+            if (item.SellIn < 0)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality += 1;
+                }
+            }
         }
     }
 
