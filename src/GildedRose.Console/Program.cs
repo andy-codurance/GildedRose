@@ -38,17 +38,7 @@ namespace GildedRose.Console
         {
             foreach (var item in Items)
             {
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    if (item.Quality > 0)
-                    {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            DecreaseQualityByOne(item);
-                        }
-                    }
-                }
-                else
+                if (item.Name == "Aged Brie" || item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
                     if (item.Quality < 50)
                     {
@@ -71,6 +61,16 @@ namespace GildedRose.Console
                                     IncreaseQualityByOne(item);
                                 }
                             }
+                        }
+                    }
+                }
+                else
+                {
+                    if (item.Quality > 0)
+                    {
+                        if (item.Name != "Sulfuras, Hand of Ragnaros")
+                        {
+                            DecreaseQualityByOne(item);
                         }
                     }
                 }
