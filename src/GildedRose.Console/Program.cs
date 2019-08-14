@@ -40,31 +40,22 @@ namespace GildedRose.Console
             {
                 if (item.Name == "Aged Brie")
                 {
-                    if (item.Quality < 50)
-                    {
-                        IncreaseQualityByOne(item);
-                    }
+                    IncreaseQualityIfFiftyOrLess(item);
                 }
                 else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
+                    IncreaseQualityIfFiftyOrLess(item);
+                    
                     if (item.Quality < 50)
                     {
-                        IncreaseQualityByOne(item);
-                        
                         if (item.SellIn < 11)
                         {
-                            if (item.Quality < 50)
-                            {
-                                IncreaseQualityByOne(item);
-                            }
+                            IncreaseQualityIfFiftyOrLess(item);
                         }
 
                         if (item.SellIn < 6)
                         {
-                            if (item.Quality < 50)
-                            {
-                                IncreaseQualityByOne(item);
-                            }
+                            IncreaseQualityIfFiftyOrLess(item);
                         }
                     }
                 }
@@ -86,10 +77,7 @@ namespace GildedRose.Console
                 {
                     if (item.Name == "Aged Brie")
                     {
-                        if (item.Quality < 50)
-                        {
-                            IncreaseQualityByOne(item);
-                        }
+                        IncreaseQualityIfFiftyOrLess(item);
                     }
                     else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
@@ -103,6 +91,14 @@ namespace GildedRose.Console
                         }
                     }
                 }
+            }
+        }
+
+        private static void IncreaseQualityIfFiftyOrLess(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                IncreaseQualityByOne(item);
             }
         }
 
